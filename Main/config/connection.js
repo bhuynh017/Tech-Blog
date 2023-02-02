@@ -1,3 +1,4 @@
+// boiler plate code
 const Sequelize = require('sequelize');
 require('dotenv').config();
 
