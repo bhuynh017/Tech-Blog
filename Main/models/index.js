@@ -11,4 +11,22 @@ Post.belongsTo(User, {
     onDelete: 'CASCADE'
   });
 
+  // one to many relationship. Where post can have many comments
+  Post.hasMany(Comment, {
+    foreignKey: 'postId',
+    // if a post is deleted then all comments are deleted.
+    onDelete: 'CASCADE'
+  });
   
+  // Also a one to many relationship where the comment is associated with one single user. 
+  Comment.belongsTo(User, {
+    foreignKey: 'userId',
+    // if a user is deleted then all comments should be deleted.
+    onDelete: 'CASCADE'
+  });
+  
+  module.exports = {
+    User,
+    Comment,
+    Post
+  };
