@@ -11,3 +11,28 @@ class User extends Model {
       return bcrypt.compareSync(loginPw, this.password);
     }
   }
+
+  // new model called User and using "init" method of the sequalize library.
+  User.init(
+    {
+        // three fields
+      id: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        primaryKey: true,
+        autoIncrement: true
+      },
+      username: {
+        type: DataTypes.STRING,
+        allowNull: false
+      },
+      password: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+          len: [4]
+        }
+      }
+    },
+
+  )
