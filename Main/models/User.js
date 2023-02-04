@@ -4,3 +4,10 @@ const { Model, DataTypes } = require('sequelize');
 const bcrypt = require('bcrypt');
 // requring the connection to the database.
 const sequelize = require('../config/connection');
+
+// this method is used for verifying the password
+class User extends Model {
+    checkPassword(loginPw) {
+      return bcrypt.compareSync(loginPw, this.password);
+    }
+  }
