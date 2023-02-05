@@ -1,14 +1,14 @@
 const editHandler = async function(event) {
     event.preventDefault();
   
-    const postId = document.querySelector('input[name="post-id"]').value;
+    const commentId = document.querySelector('input[name="post-id"]').value;
     const body = document.querySelector('textarea[name="comment-body"]').value;
   
     if (body) {
       await fetch('/api/comment', {
         method: 'POST',
         body: JSON.stringify({
-          postId,
+          commentId,
           body
         }),
         headers: {
