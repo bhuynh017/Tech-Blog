@@ -1,0 +1,9 @@
+<!-- handlebars template. #each posts to help iterate over the posts array passed to the templated as a context !-->
+<div class="posts list-group">
+  {{#each posts}}
+    <a class="list-item flex-row justify-space-between" href="/dashboard/edit/{{id}}">
+      <span>{{title}}</span>
+      <span>{{format_date createdAt}}</span>
+    </a>
+  {{/each}}
+</div>
