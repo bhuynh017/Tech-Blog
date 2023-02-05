@@ -1,5 +1,5 @@
 // creating an event handler that submits a comment on a post. 
-const commentFormHandler = async function (event) {
+const commentHandler = async function (event) {
   event.preventDefault();
 
   // gets the post ID and comment body from form inputs
@@ -25,4 +25,4 @@ const commentFormHandler = async function (event) {
 
 document
   .querySelector("#new-comment-form")
-  .addEventListener("submit", commentFormHandler);
+  .addEventListener("submit", commentHandler);
