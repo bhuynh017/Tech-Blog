@@ -60,7 +60,7 @@ p {
 input {
   width: 100%;
   border: 1px solid #ccc;
-  background: #fff;
+  background: rgb(255, 254, 254);
   margin: 0 0 5px;
   padding: 10px;
 }
