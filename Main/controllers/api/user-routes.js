@@ -48,5 +48,30 @@ router.post('/login', async (req, res) => {
       return;
     }
 
+    // saving session and username and allowing user to be loggedIn.
+    req.session.save(() => {
+      req.session.userId = user.id;
+      req.session.username = user.username;
+      req.session.loggedIn = true;
+
+      // informing user that they are logged in.
+      res.json({ user, message: 'You are now logged in!' });
+    });
+  } catch (err) {
+    // if failed then no user was found.
+    res.status(400).json({ message: 'User account was not found.' });
   }
 });
+
+// post route to log user out and destroy session.
+router.post('/logout', (req, res) => {
+  if (req.session.loggedIn) {
+    req.session.destroy(() => {
+      res.status(204).end();
+    });
+  } else {
+    res.status(404).end();
+  }
+});
+
+module.exports = router;
